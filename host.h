@@ -56,7 +56,7 @@ public:
         }
 
         // 못 찾을 경우 아래가 실행됨
-        std::cout << ": no service for packet (from:" << packet->srcAddress().toString()
+        std::cout << ": no service for packet (from: " << packet->srcAddress().toString()
                   << ", to: " << packet->destAddress().toString()
                   << ", " << packet->data().size() << " bytes)" << std::endl;
 
