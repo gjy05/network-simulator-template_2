@@ -13,11 +13,11 @@ second.o: scenarios/second.cpp
 impl.o: impl.cpp
 	$(CC) $(CFLAGS) -c impl.cpp
 
-first: first.o impl.o
+first: first.o $(OBJECTS)
 	$(CC) $(CFLAGS) -o first first.o $(OBJECTS)
 
-second: second.o
+second: second.o $(OBJECTS)
 	$(CC) $(CFLAGS) -o second second.o $(OBJECTS)
 
 clean:
-	rm -f *.o first second impl
+	rm -f *.o *.exe first second impl
