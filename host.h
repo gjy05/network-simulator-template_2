@@ -23,7 +23,10 @@ public:
     Host(Address address) : address_(address) {}
     ~Host() override
     {
-        services_.clear();
+        for (Service* service : services_)
+        {
+            delete service;
+        }
     }
 
     // 호스트와 설치된 서비스를 전부 초기화한다.

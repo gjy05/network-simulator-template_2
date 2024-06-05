@@ -32,6 +32,8 @@ public:
         std::cout << "MessageService: received \"" << packet->dataString()
                   << "\" from " << packet->srcAddress().toString() << ":" << packet->srcPort()
                   << std::endl;
+
+        delete packet;
     }
 };
 

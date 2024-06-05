@@ -21,6 +21,7 @@ protected:
 public:
     short port() { return port_; }
     virtual void receive(Packet *packet) = 0;
+    virtual ~Service(){};
 };
 
 #endif

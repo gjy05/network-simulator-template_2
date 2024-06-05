@@ -37,6 +37,8 @@ public:
         std::cout << "no route for packet (from: " << packet->srcAddress().toString()
                   << ", to: " << packet->destAddress().toString()
                   << ", " << packet->data().size() << " bytes)" << std::endl;
+
+        delete packet;
     }
 };
 
