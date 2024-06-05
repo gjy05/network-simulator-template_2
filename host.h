@@ -42,21 +42,21 @@ public:
 
     void receive(Packet *packet) override
     {
-        std::cout << "Host #" << id()
-                  << ": received packet, destination port: " << packet->destPort() << std::endl;
+        std::cout << "Host #" << id();
 
         for (Service *service : services_)
         {
             if (service->port() == packet->destPort())
             {
+                std::cout << ": received packet, destination port: " << packet->destPort()
+                          << std::endl;
                 service->receive(packet);
                 return;
             }
         }
 
         // 못 찾을 경우 아래가 실행됨
-        std::cout << "Host #" << id()
-                  << ": no service for packet (from:" << packet->srcAddress().toString()
+        std::cout << ": no service for packet (from:" << packet->srcAddress().toString()
                   << ", to: " << packet->destAddress().toString()
                   << ", " << packet->data().size() << " bytes)" << std::endl;
 
