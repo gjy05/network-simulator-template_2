@@ -5,17 +5,22 @@
 
 class Host;
 
-class Service {
-  friend class ServiceInstaller;
+class Service
+{
+    friend class ServiceInstaller;
 
 protected:
-  // 서비스가 설치된 호스트
-  Host *host_;
+    // 서비스가 설치된 호스트
+    Host *host_;
 
-  // 서비스가 사용하는 포트
-  short port_;
+    // 서비스가 사용하는 포트
+    short port_;
 
-  Service(Host *host, int port) : host_(host), port_(port) {}
+    Service(Host *host, int port) : host_(host), port_(port) {}
+
+public:
+    short port() { return port_; }
+    virtual void receive(Packet *packet) = 0;
 };
 
 #endif
